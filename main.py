@@ -35,16 +35,6 @@ def process_command(c):
     elif "start messenger" or "start mesengar" or "start messengar" or "start mesenger" in c:
         os.startfile(r"C:\program files\WindowsApps\FACEBOOK.317180B0BB486_2150.23.211.0_x64__8xx8rvfyw5nnt\app\Messenger.exe")
 
-    
-    # elif c.startswith("play"):
-    #     song_name = c.split(" ", 1)[1]
-    #     link = music_library.music(song_name)
-    #     if link:
-    #         webbrowser.open(link)
-    #         print(f"Playing '{song_name}'")
-    #     else:
-    #         print(f"Song '{song_name}' not found in music library.")
-
     #youtube
     elif c.startswith("play song"):
         speak("which song do you want to hear, Sir?")
