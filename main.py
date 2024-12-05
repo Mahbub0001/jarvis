@@ -1,7 +1,6 @@
 import speech_recognition as sr
 import webbrowser
 import pyttsx3
-import music_library #self
 import audio_book #self
 import pywhatkit
 import os
@@ -59,7 +58,7 @@ def process_command(c):
             except sr.RequestError as e:
                 print(f"Could not request results; check your internet connection. Error: {e}")
 
-    #audio book
+    #plya audio from audio book
     elif "play audio book" or "play audiobook" or "play odibook" or "play odi book" in c.lower():
         while True:
             try:
