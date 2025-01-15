@@ -8,7 +8,9 @@ import os
 # Initialize recognizer and speech engine
 r = sr.Recognizer()
 engine = pyttsx3.init()
-songs=music_library.music
+voices=engine.getProperty('voices')
+engine.setProperty('voice',voices[1].id)
+# songs=music_library.music
 
 def speak(text):
     engine.say(text)
@@ -31,8 +33,8 @@ def process_command(c):
     elif "start calculator" in c:
         os.startfile("calc.exe")
 
-    elif "start messenger" or "start mesengar" or "start messengar" or "start mesenger" in c:
-        os.startfile(r"C:\program files\WindowsApps\FACEBOOK.317180B0BB486_2150.23.211.0_x64__8xx8rvfyw5nnt\app\Messenger.exe")
+    # elif "start messenger" or "start mesengar" or "start messengar" or "start mesenger" in c:
+    #     os.startfile(r"C:\program files\WindowsApps\FACEBOOK.317180B0BB486_2250.0.0.0_x64__8xx8rvfyw5nnt\Messenger.exe")
 
     #youtube
     elif c.startswith("play song"):
@@ -72,13 +74,15 @@ def process_command(c):
                 c=word
                 print("you said: ",c)
                 audio_book.AudioBook(word)
+                if "jarvis stop" or "jarvice stop" or "service stop" in c:
+                  speak("ok sir, exiting from the function")
+                  break
             except sr.UnknownValueError:
                 print("Sorry, I did not understand that.")
             
             except sr.RequestError as e:
                 print(f"Could not request results; check your internet connection. Error: {e}")
-            if "jarvis stop" or "jarvice stop" or "service stop" in c:
-                speak("ok sir, exiting from the function")
+            
 
     else:
         print(f"{c} not found")
@@ -121,4 +125,3 @@ if __name__ == "__main__":
         except sr.RequestError as e:
             print(f"Could not request results; check your internet connection. Error: {e}")
             
-
